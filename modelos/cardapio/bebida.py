@@ -9,3 +9,6 @@ class Bebida(ItemCardapio):
     @property
     def tamanho(self):
         return self._tamanho
+
+    def aplicar_desconto(self):
+        self._preco -= self._preco * 0.05

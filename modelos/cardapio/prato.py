@@ -9,3 +9,6 @@ class Prato(ItemCardapio):
     @property
     def descricao(self):
         return self._descricao
+
+    def aplicar_desconto(self):
+        self._preco -= self._preco * 0.08
