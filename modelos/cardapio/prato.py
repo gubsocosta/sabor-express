@@ -5,3 +5,7 @@ class Prato(ItemCardapio):
     def __init__(self, nome, preco, descricao):
         super().__init__(nome, preco)
         self._descricao = descricao
+
+    @property
+    def descricao(self):
+        return self._descricao
