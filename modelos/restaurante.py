@@ -18,9 +18,13 @@ class Restaurante:
 
     @classmethod
     def listar_restaurantes(cls):
-        print(f"{'Nome'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliacao'.ljust(25)} | Ativo")
+        print(
+            f"{'Nome'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliacao'.ljust(25)} | Ativo"
+        )
         for r in Restaurante.resturantes:
-            print(f"{r.nome.ljust(25)} | {r.categoria.ljust(25)} | {str(r.media_avaliacao).ljust(25)} | {r.ativo}")
+            print(
+                f"{r.nome.ljust(25)} | {r.categoria.ljust(25)} | {str(r.media_avaliacao).ljust(25)} | {r.ativo}"
+            )
 
     def alternar_estado(self):
         self._ativo = not self._ativo
@@ -36,8 +40,8 @@ class Restaurante:
     def cardapio(self):
         print(f"Cardapio do {self.nome}\n")
 
-        for i,item in enumerate(self._cardapio, start=1):
-            if hasattr(item, 'descricao'):
+        for i, item in enumerate(self._cardapio, start=1):
+            if hasattr(item, "descricao"):
                 mensagem = f"{i}. Nome: {item.nome} | Preco: R${round(item.preco, 2)} | Descricao: {item.descricao}"
                 print(mensagem)
             else:
@@ -48,10 +52,10 @@ class Restaurante:
     def media_avaliacao(self):
         if not self._avaliacao:
             return 0
-        
+
         soma_notas = sum(avaliacao.nota for avaliacao in self.avaliacao)
         quantidade_notas = len(self._avaliacao)
-        media = round(soma_notas/quantidade_notas, 1)
+        media = round(soma_notas / quantidade_notas, 1)
 
         return media
 
@@ -66,7 +70,7 @@ class Restaurante:
     @property
     def categoria(self):
         return self._categoria
-    
+
     @property
     def avaliacao(self):
         return self._avaliacao
